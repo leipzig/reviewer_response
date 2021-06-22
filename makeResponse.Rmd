@@ -9,7 +9,8 @@ output:
     lightbox: false
     gallery: false
     highlight: tango
-  
+    use_bookdown: false
+    css: styles.css
 ---
 
 
