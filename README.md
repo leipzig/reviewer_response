@@ -4,10 +4,9 @@ This generates a slick response summary HTML from a Google sheet used for peer r
 
 Your google sheet must have the following columns
 - Identifier e.g. 87LE
-- Reviewer
-- ReviewerImportance
-- Request
-- Difficulty
+- Reviewer integer
+- ReviewerImportance string
+- Request string
 - Response (can contain anchor tags that refer to identifiers for other items e.g. #87LE )
 
 <img width="1717" alt="Screen Shot 2021-06-22 at 1 15 00 PM" src="https://user-images.githubusercontent.com/147991/122985880-ef95f900-d35b-11eb-8bb8-e8d6bbfe0225.png">
