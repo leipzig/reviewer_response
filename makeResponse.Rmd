@@ -1,9 +1,8 @@
 ---
 output:
   knitrBootstrap::bootstrap_document:
-    title: "Test file"
+    title: "Reviewer response"
     theme: default
-    highlight: sunburst
     theme.chooser: FALSE
     highlight.chooser: FALSE
 ---
@@ -12,6 +11,7 @@ output:
 library(dplyr)
 library(knitr)
 library(kableExtra)
+library(stringr)
 
 triageURL<-"https://docs.google.com/spreadsheets/d/17_88MP0hLXawwxPCjkHYWpz0zG9DSNRUgYfjKnAjWg8/edit#gid=0"
 
@@ -33,13 +33,10 @@ footerRow<-function(){
 }
 ```
 Dear editors and reviewers,
-Thank you for the helpful comments and suggestions on this manuscript, "The Role of Metadata in Reproducible Computational Research". We have implemented the vast majority of these suggestions and tried to address each major addition where possible.
-
-
+Thank you for the helpful comments and suggestions on this manuscript, "The Role of Metadata in Reproducible Computational Research". We have implemented the vast majority of these suggestions including new citations and tried to address each major addition where possible.
 
 ```{r, respTab, results='asis', eval=TRUE, echo=FALSE}
 headerRow()
 apply(triage,1,displayItem)
 footerRow()
-
 ```
