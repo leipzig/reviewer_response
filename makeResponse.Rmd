@@ -34,7 +34,7 @@ opts_knit$set(width = 75)
 ```
 
 ```{r funcs, eval=TRUE, echo=FALSE, message=FALSE, include=FALSE}
-triageURL<-"https://docs.google.com/spreadsheets/d/17_88MP0hLXawwxPCjkHYWpz0zG9DSNRUgYfjKnAjWg8/edit#gid=0"
+triageURL<-"<<secret-googlesheet-url>>"
 
 googlesheets4::read_sheet(triageURL) %>% arrange(Reviewer,ReviewerImportance) -> triage
 
