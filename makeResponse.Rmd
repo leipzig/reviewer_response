@@ -1,14 +1,15 @@
 ---
 title: "Review response Metadata-in-RCR"
 date: "`r Sys.Date()`"
-author: Jeremy Leipzig, Daniel Nüst, Karthik Ram, Jane Greenberg
-output:
+author: Jeremy Leipzig, Daniel Nüst, Charles Tapley Hoyt, Karthik Ram, Jane Greenberg
+output: 
   rmdformats::downcute:
     self_contained: true
     thumbnails: false
     lightbox: false
     gallery: false
     highlight: tango
+  
 ---
 
 
