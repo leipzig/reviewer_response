@@ -1,0 +1,45 @@
+---
+output:
+  knitrBootstrap::bootstrap_document:
+    title: "Test file"
+    theme: default
+    highlight: sunburst
+    theme.chooser: FALSE
+    highlight.chooser: FALSE
+---
+
+```{r, eval=TRUE, echo=FALSE, message=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+triageURL<-"https://docs.google.com/spreadsheets/d/17_88MP0hLXawwxPCjkHYWpz0zG9DSNRUgYfjKnAjWg8/edit#gid=0"
+
+googlesheets4::read_sheet(triageURL) %>% arrange(Reviewer) -> triage
+
+#linkify anchor ids
+triage$Response<-stringr::str_replace_all(triage$Response,"(#[A-Z0-9]+)","<a href='\\1'>\\1</a>")
+
+headerRow<-function(){
+  cat("<table><tr><td>ID</td><td>Reviewer</td><td>Importance</tr>\n")
+}
+displayItem<-function(itemRow){
+  cat(paste("<tr class='table-dark'><td><a name=",itemRow['Identifier'],">",itemRow['Identifier'],"</a></td><td>Reviewer ",itemRow['Reviewer'],"</td><td>",itemRow['ReviewerImportance'],"</td></tr>\n",sep=""))
+  cat(paste('<tr><td>Request</td><td colspan="2">',itemRow['Request'],"</td></tr>\n"))
+  cat(paste('<tr><td>Response</td><td colspan="2">',itemRow['Response'],"</td></tr>\n"))
+}
+footerRow<-function(){
+  cat("</table>\n")
+}
+```
+Dear editors and reviewers,
+Thank you for the helpful comments and suggestions on this manuscript, "The Role of Metadata in Reproducible Computational Research". We have implemented the vast majority of these suggestions and tried to address each major addition where possible.
+
+
+
+```{r, respTab, results='asis', eval=TRUE, echo=FALSE}
+headerRow()
+apply(triage,1,displayItem)
+footerRow()
+
+```
