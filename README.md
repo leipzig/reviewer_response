@@ -1,6 +1,6 @@
 # reviewer_response
 
-This generates a slick response summary HTML from a Google sheet used for peer review reponse triage
+This generates a slick response summary HTML from a Google sheet used for peer review response triage
 
 Your google sheet must have the following columns
 - Identifier e.g. 87LE
